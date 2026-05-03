@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoramento de Tráfego TCP</title>
+    <meta http-equiv="refresh" content="3">
+    <link rel="stylesheet" href="/site/style.css">
+</head>
+
+<body class="dashboard-page">
+
+    <header>
+        <h1>Dashboard de Análise TCP</h1>
+        <p>Monitoramento em tempo real do desempenho e tráfego do servidor</p>
+    </header>
+
+    <div class="container">
+        <!-- Grid de Métricas Principais -->
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <h2>Uso Geral</h2>
+                <div class="metric-value">{{total}}</div>
+                <p>Total de Requisições</p>
+            </div>
+
+            <div class="metric-card">
+                <h2>Clientes Únicos</h2>
+                <div class="metric-value">{{clients}}</div>
+                <p>IPs únicos conectados via TCP</p>
+            </div>
+
+            <div class="metric-card">
+                <h2>Conexões Ativas</h2>
+                <div class="metric-value">{{active}}</div>
+                <p>Threads/Conexões simultâneas</p>
+            </div>
+
+            <div class="metric-card">
+                <h2>Volume de Dados</h2>
+                <div class="metric-value">{{bytes}}</div>
+                <p>Total de dados enviados</p>
+            </div>
+        </div>
+
+        <!-- Seção de Performance -->
+        <div class="dashboard-grid">
+            <div class="metric-card {{perf_color}}">
+                <h2>Tempo Médio de Resposta</h2>
+                <div class="metric-value">{{avg_time}} ms</div>
+                <p>Latência média do servidor</p>
+            </div>
+
+            <div class="metric-card">
+                <h2>Tempo Mínimo</h2>
+                <div class="metric-value">{{min_time}} ms</div>
+                <p>Resposta mais rápida registrada</p>
+            </div>
+
+            <div class="metric-card">
+                <h2>Tempo Máximo</h2>
+                <div class="metric-value">{{max_time}} ms</div>
+                <p>Resposta mais lenta registrada</p>
+            </div>
+        </div>
+
+        <!-- Insights Automáticos -->
+        <div class="insight-box">
+            <strong>Análise do Sistema:</strong> {{insights}}
+        </div>
+
+        <!-- Detalhes de Rotas, Tipos e Histórico -->
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <h2>Distribuição de Conteúdo</h2>
+                <ul class="dash-list">
+                    {{content_types}}
+                </ul>
+            </div>
+
+            <div class="metric-card">
+                <h2>Ranking de Rotas</h2>
+                <ul class="dash-list">
+                    {{routes}}
+                </ul>
+            </div>
+
+            <div class="metric-card">
+                <h2>Histórico Recente</h2>
+                <ul class="dash-list">
+                    {{history}}
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <p>Última Requisição: <strong>{{last}}</strong></p>
+            <a href="/" style="color: #38bdf8; font-weight: bold; text-decoration: none;">Voltar para a Home</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
